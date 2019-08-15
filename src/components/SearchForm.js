@@ -25,7 +25,7 @@ class SearchForm extends Component{
     render(){
         return(
             <div>
-                <Form onSubmit={() => this.props.handleSubmit(this.state)}>
+                <Form onSubmit={() => this.props.submitSearch(this.state)}>
                 <Form.Group widths="equal">
                     {/* <Form.Input fluid label="Title" placeholder="Title" name="Title" onChange={this.handleChangeTitle} value={this.state.searchInputTitle}/> */}
                     <Form.Input fluid label="Author" placeholder="Author" name="Author" onChange={this.handleChangeAuthor} value={this.state.searchInputAuthor}/>
