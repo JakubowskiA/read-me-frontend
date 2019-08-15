@@ -1,11 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar'
 
 const Header=()=>{
     return(
     <div>
-        <h1>Read Me</h1>
-        <br/>
-        <nav>ADD NAV STUFF HERE</nav>
+        <h1 class="logo">Read Me.</h1>
+
+        <Navbar />
     </div>
     )
 }
