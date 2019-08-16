@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 import SearchForm from './SearchForm'
 import SearchedBooks from './SearchedBooks';
-import MyBooksSidebar from './MyBooksSidebar'
+import MyBooksSidebar from './MyBooksSidebar';
+import MyBooksPage from './MyBooksPage'
+
+// TO DO
+// CONDITIONAL RENDERING OF COMPONENTS
+
 const BASE_URL = "http://localhost:3000"
 const TEST_USER_ID = 1;
+
 class BooksContainer extends Component{
     state={
         searchedBooks:[],
@@ -22,8 +28,13 @@ class BooksContainer extends Component{
         .then(data=>this.setState({myBooks: data}))
     }
 
-    addToMyBooks=()=>{
+    addToMyBooks=(book)=>{
+        console.log(book)
         // ADD BOOK TO MY BOOKS
+    }
+
+    showBookDetails=(book)=>{
+        // SHOW BOOK DETAILS
     }
 
     render(){
@@ -31,7 +42,8 @@ class BooksContainer extends Component{
             <div>
                 <SearchForm submitSearch={this.submitSearch} />
                 <div className="component-row">
-                <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks}/>
+                <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks} showBookDetails={this.showBookDetails}/>
+                {/* <MyBooksPage  myBooks={this.state.myBooks} myBooks={this.state.myBooks} showBookDetails={this.showBookDetails}/> */}
                 <MyBooksSidebar  myBooks={this.state.myBooks}/>
                 </div>
             </div>

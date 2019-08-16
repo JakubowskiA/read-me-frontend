@@ -11,10 +11,7 @@ class MyBooksSidebar extends Component{
             response = "You have no books."
         }else{
             response = myBooks.map(book=>(
-                <Book
-                key={book.id}
-                book={book}
-                />
+                <li>{book.title}</li>
             ))
         }
 
