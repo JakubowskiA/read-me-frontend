@@ -7,24 +7,24 @@ class Navbar extends React.Component{
     return(
       <Menu>
         <Container>
-          <Menu.Item as="a" name="my-books">
+          <Menu.Item as="a" name="my-books" className="nav-item">
             My Books
           </Menu.Item>
 
-          <Menu.Item as="a" name="search">
+          <Menu.Item as="a" name="search" className="nav-item">
             Search
           </Menu.Item>
 
-          <Menu.Menu position="right">
-            <Menu.Item as="a" name="login">
+          {/* <Menu.Menu position="right"> */}
+            <Menu.Item as="a" name="login" className="nav-item">
               Login
             </Menu.Item>
 
-            <Menu.Item as="a" name="register">
+            <Menu.Item as="a" name="register" className="nav-item">
               Register
             </Menu.Item>
 
-          </Menu.Menu>
+          {/* </Menu.Menu> */}
         </Container>
       </Menu>
     )

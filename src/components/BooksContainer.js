@@ -5,7 +5,8 @@ import MyBooks from './MyBooks'
 const BASE_URL = "http://localhost:3000"
 class BooksContainer extends Component{
     state={
-        searchedBooks:[]
+        searchedBooks:[],
+        myBooks:[]
     }
 
     submitSearch=(input)=>{
@@ -13,13 +14,23 @@ class BooksContainer extends Component{
         .then(res=>res.json())
         .then(data=>this.setState({searchedBooks: data}))
         // SUBMIT SEARCH FORM
-      }
+    }
+
+    getMyBooks(){
+        fetch(`${BASE_URL}/users/1/search/my_books`)
+        .then(res=>res.json())
+        .then(data=>this.setState({myBooks: data}))
+    
+    }
 
     render(){
         return(
             <div>
                 <SearchForm submitSearch={this.submitSearch} />
+                <div className="component-row">
                 <SearchedBooks searchedBooks={this.state.searchedBooks}/>
+                <MyBooks  myBooks={this.state. myBooks}/>
+                </div>
             </div>
         )
     }
