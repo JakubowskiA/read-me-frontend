@@ -9,6 +9,7 @@ class Book extends Component{
                 <h2>{this.props.book.title}</h2>
                 <h3>By: {this.props.book.author}</h3>
                 <Image src={this.props.book.image} centered/>
+                <button onClick={this.props.addToMyBooks}>Add to My Books</button>
                 
 
             </Card>

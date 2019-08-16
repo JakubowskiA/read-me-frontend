@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Book from './Book'
 
-class MyBooks extends Component{
+class MyBooksSidebar extends Component{
     
     
     render(){
@@ -28,4 +28,4 @@ class MyBooks extends Component{
     }
 }
 
-export default MyBooks
+export default MyBooksSidebar
