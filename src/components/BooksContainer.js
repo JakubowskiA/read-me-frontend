@@ -6,6 +6,7 @@ const BASE_URL = "http://localhost:3000"
 class BooksContainer extends Component{
     state={
         searchedBooks:[]
+
     }
 
     submitSearch=(input)=>{
@@ -13,7 +14,7 @@ class BooksContainer extends Component{
         .then(res=>res.json())
         .then(data=>this.setState({searchedBooks: data}))
         // SUBMIT SEARCH FORM
-      }
+    }
 
     render(){
         return(
