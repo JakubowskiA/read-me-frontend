@@ -22,14 +22,26 @@ class BooksContainer extends Component{
         // SUBMIT SEARCH FORM
     }
 
-    getMyBooks(){
+    componentDidMount(){
         fetch(`${BASE_URL}/users/${TEST_USER_ID}/my_books`)
         .then(res=>res.json())
         .then(data=>this.setState({myBooks: data}))
-    }
+}
 
     addToMyBooks=(book)=>{
-        console.log(book)
+        // console.log(book)
+        fetch(`${BASE_URL}/user_books`, 
+        {method: "POST",         
+        headers: {
+           "Content-Type": "application/json",
+           "Accept": "application/json"
+       }, body: JSON.stringify({
+           user_id: 1, 
+           book_id: book.id
+        })})
+        .then(resp => resp.json())
+        .then(book=>this.setState({myBooks:[...this.state.myBooks, book]}))
+        
         // ADD BOOK TO MY BOOKS
     }
 
