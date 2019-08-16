@@ -11,6 +11,7 @@ class SearchedBooks extends Component{
             <Book
             key={book.id}
             book={book}
+            addToMyBooks={this.props.addToMyBooks}
             />
         ))
         return(
