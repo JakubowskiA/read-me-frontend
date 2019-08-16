@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Book from './Book'
+import Book from './Book';
+import {Card} from 'semantic-ui-react';
 
 class MyBooksPage extends Component{
     
@@ -22,7 +23,10 @@ class MyBooksPage extends Component{
             <div className="test">
                <h2>My Books Page</h2> 
                <br/>
+               <Card.Group itemsPerRow={3} className="searched-books-container">
                {response}
+               </Card.Group>
+               
             </div>
         )
     }

@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
+import React, {Component, Fragment} from 'react';
+import { Route, withRouter } from 'react-router-dom';
 import SearchForm from './SearchForm'
 import SearchedBooks from './SearchedBooks';
 import MyBooksSidebar from './MyBooksSidebar';
 import MyBooksPage from './MyBooksPage';
 import DisplayBook from './DisplayBook';
+
 
 // TO DO
 // CONDITIONAL RENDERING OF COMPONENTS
@@ -54,38 +55,59 @@ class BooksContainer extends Component{
         // console.log(book)
         fetch(`${BASE_URL}/users/1/book_detail/${book.id}`)
         .then(res => res.json())
-        .then(book => this.setState({displayedBook: book}))
-
-
+        .then(book => {
+            this.setState({displayedBook: book});
+            this.props.history.push('/display-book')
+        }
+        )
     }
+        
+        
 
     render(){
         return(
             <div>
-                <SearchForm submitSearch={this.submitSearch} />
+                
                 <div className="component-row">
                 <Route
-                path="/"
+                path="/search-books"
                 render={() => (
+                    <Fragment>
+                    <SearchForm submitSearch={this.submitSearch} />
                     <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks} showBookDetails={this.showBookDetails}
                     />
+                    <MyBooksSidebar  myBooks={this.state.myBooks}/>
+                    </Fragment>
                 )}
                 />
                 <Route
-                path="/"
+                path="/display-book"
                 render={() => (
+                    <Fragment>
+                    <SearchForm submitSearch={this.submitSearch} />
                     <DisplayBook
                         book={this.state.displayedBook}
                     />
+                    <MyBooksSidebar  myBooks={this.state.myBooks}/>
+                    </Fragment>
                 )}
 
                 />
-                {/* <MyBooksPage  myBooks={this.state.myBooks} myBooks={this.state.myBooks} showBookDetails={this.showBookDetails}/> */}
-                <MyBooksSidebar  myBooks={this.state.myBooks}/>
+
+                <Route
+                path="/my-books"
+                render={() => (
+                    
+                    <MyBooksPage  myBooks={this.state.myBooks} myBooks={this.state.myBooks} showBookDetails={this.showBookDetails}/>
+                
+                )}
+
+                />
+                
                 </div>
             </div>
         )
     }
 }
 
-export default BooksContainer
+export default withRouter(BooksContainer)
