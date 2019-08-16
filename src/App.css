@@ -2,20 +2,14 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 48pt;
   color: white;
 }
 
@@ -23,4 +17,29 @@
   color: #61dafb;
 }
 
+.header-image {
+  background-image: url('https://s3.amazonaws.com/qualtrics-www/assets/blog/wp-content/uploads/2018/08/shutterstock_1068141515.jpg') !important;
+  background-size: cover !important;
+  max-height: 40vh;
+}
 
+.searched-books-container{
+  width: 70%;
+}
+
+.my-books-container{
+  width: 30%;
+}
+
+.component-row{display:flex; 
+  flex-direction:row;}
+
+.nav-item{
+  font-size: 14pt;
+  width: 7em;
+  text-align: center;
+  align-content: center;
+}
+.test{
+  background-color: #61dafb;
+}
