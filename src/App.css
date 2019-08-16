@@ -24,14 +24,16 @@
 }
 
 .searched-books-container{
-  width: 70%;
+  width: 85%;
 }
 
 .my-books-container{
-  width: 30%;
+  width: 15%;
+  text-align: left;
+  margin: 20px;
 }
 
-.component-row{display:flex; 
+.component-row{display:flex;
   flex-direction:row;}
 
 .nav-item{

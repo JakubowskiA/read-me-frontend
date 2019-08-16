@@ -3,8 +3,8 @@ import {Card} from 'semantic-ui-react';
 import Book from './Book'
 
 class SearchedBooks extends Component{
-    
-    
+
+
     render(){
         console.log('books',this.props.searchedBooks);
         const retrievedBooks = this.props.searchedBooks.map(book=>(
@@ -12,6 +12,7 @@ class SearchedBooks extends Component{
             key={book.id}
             book={book}
             addToMyBooks={this.props.addToMyBooks}
+            showBookDetails={this.props.showBookDetails}
             />
         ))
         return(
