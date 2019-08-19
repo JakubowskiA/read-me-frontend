@@ -47,7 +47,7 @@ class NewUserForm extends Component{
             <br/>
             <h1>Sign Up</h1>
             <br/>
-            <Form onSubmit={() => this.newUser(this.state)}>
+            <Form onSubmit={() => this.props.createUser(this.state)}>
                 <Form.Group widths="equal">
                     <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username}/>
                     <Form.Input placeholder="Enter your email address" onChange={this.handleChangeEmail} value={this.state.email}/>

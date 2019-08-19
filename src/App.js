@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header';
 import BooksContainer from './components/BooksContainer'
 import Welcome from './components/Welcome'
+import NewUserForm from './components/NewUserForm'
 
 
 class App extends Component {
@@ -12,13 +13,36 @@ class App extends Component {
   //   // LOGIN
   // }
 
+  createUser=(user)=>{
+    fetch(`${BASE_URL}/user MORE TO URL`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                }, body: JSON.stringify({
+                    username:user.username,
+                    email:user.email,
+                    password:user.password
+                })
+            })
+            .then(resp => resp.json())
+            // .then(REDIRECT TO USER HOME PAGE????)
+  }
+
   render() {
     return (
       <div className="App">
         <Route
           exact path="/"
           render={() => (
-            <Welcome />
+            <Welcome login={this.login}/>
+          )}
+        />
+        <Route
+          path="/new-user"
+          render={() => (
+            <NewUserForm createUser={this.createUser}/>
           )}
         />
         <Route
