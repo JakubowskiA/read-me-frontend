@@ -1,25 +1,40 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import logo from './logo.svg';
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import BooksContainer from './components/BooksContainer'
 import Welcome from './components/Welcome'
 
 
-function App() {
+class App extends Component {
   // login=(userLogin)=>{
   //   // LOGIN
   // }
 
-  
+  render (){
   return (
     <div className="App">
-      <Header />
-      <BooksContainer />
-      <Welcome />
+      <Route
+                        exact path="/"
+                        render={() => (
+                          <Welcome />
+                        )}
+                    />
+      <Route
+                        path="/books"
+                        render={() => (
+                          <Fragment>
+                            <Header />
+                            <BooksContainer />
+                          </Fragment>
+                        )}
+                    />            
+      
+      
     </div>
   );
+}
 }
 
 export default App;
