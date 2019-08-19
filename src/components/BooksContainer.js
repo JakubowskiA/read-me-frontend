@@ -26,6 +26,23 @@ class BooksContainer extends Component {
         // SUBMIT SEARCH FORM
     }
 
+    deleteFromMyBooks = (bookObj) => {
+        fetch(`${BASE_URL}/user_books/1/${bookObj.id}`, {
+            method: "DELETE", headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }).then(
+            _ => {
+                const newMyBooks = this.state.myBooks.filter(book => book.id !== bookObj.id)
+                this.setState({
+                    myBooks: newMyBooks
+                })
+            }
+        )
+    }
+
+
     componentDidMount() {
         fetch(`${BASE_URL}/users/${TEST_USER_ID}/my_books`)
             .then(res => res.json())
@@ -101,7 +118,7 @@ class BooksContainer extends Component {
                         render={() => (
 
                             <MyBooksPage myBooks={this.state.myBooks}
-                                addToMyBooks={this.props.addToMyBooks}
+                                addOrDelete={this.deleteFromMyBooks}
                                 showBookDetails={this.showBookDetails} />
                         )}
 
