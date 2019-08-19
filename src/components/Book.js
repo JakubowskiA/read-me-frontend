@@ -14,7 +14,7 @@ class Book extends Component {
                 <h2>{this.props.book.title}</h2>
                 <h3>By: {this.props.book.author}</h3>
                 <button onClick={() => this.props.addOrDelete(this.props.book)}>{this.props.inCollection ? "Remove from my collection" : "Add to my collection"}</button>
-                <button onClick={() => this.props.showBookDetails(this.props.book)}>See Details</button>
+                <button onClick={() => this.props.showBookDetails(this.props.book, this.props.inCollection)}>See Details</button>
 
             </Card>
         )
