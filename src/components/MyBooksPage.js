@@ -6,6 +6,7 @@ class MyBooksPage extends Component {
 
 
     render() {
+        console.log(this.props)
         const myBooks = this.props.myBooks //GRAB MY BOOKS INFO
         let response
         if (myBooks.length === 0) {
@@ -15,6 +16,8 @@ class MyBooksPage extends Component {
                 <Book
                     key={book.id}
                     book={book}
+                    addOrDelete={this.props.addOrDelete}
+                    inCollection={true}
                 />
             ))
         }

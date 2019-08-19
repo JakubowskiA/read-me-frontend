@@ -1,21 +1,22 @@
-import React, {Component} from 'react';
-import {Card} from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
 import Book from './Book'
 
-class SearchedBooks extends Component{
+class SearchedBooks extends Component {
 
 
-    render(){
-        console.log('books',this.props.searchedBooks);
-        const retrievedBooks = this.props.searchedBooks.map(book=>(
+    render() {
+        console.log('books', this.props.searchedBooks);
+        const retrievedBooks = this.props.searchedBooks.map(book => (
             <Book
-            key={book.id}
-            book={book}
-            addToMyBooks={this.props.addToMyBooks}
-            showBookDetails={this.props.showBookDetails}
+                key={book.id}
+                book={book}
+                addOrDelete={this.props.addToMyBooks}
+                showBookDetails={this.props.showBookDetails}
+                inCollect={false}
             />
         ))
-        return(
+        return (
             <Card.Group itemsPerRow={3} className="searched-books-container">
                 {retrievedBooks}
             </Card.Group>
