@@ -10,10 +10,19 @@ const DisplayBook = (props) => {
       <h3> By: {props.book.author} </h3>
       <Image src={props.book.image} centered />
       <h3> {props.book.description} </h3>
-      <button
-        type="button"
-        name="add book">Add to Your Books
-      </button>
+      {props.displayedBookInCollection ?
+        (<button
+          type="button"
+          onClick={_ => props.deleteFromMyBooks(props.book)}>
+          Remove From Your Books
+      </button>) :
+        (<button
+
+          type="button"
+          onClick={_ => props.addToMyBooks(props.book)}>
+          Add to Your Books
+      </button>)}
+
     </div>
   )
 }

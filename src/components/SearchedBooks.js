@@ -13,7 +13,7 @@ class SearchedBooks extends Component {
                 book={book}
                 addOrDelete={this.props.addToMyBooks}
                 showBookDetails={this.props.showBookDetails}
-                inCollect={false}
+                inCollection={false}
             />
         ))
         return (

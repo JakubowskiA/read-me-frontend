@@ -17,7 +17,9 @@ class MyBooksPage extends Component {
                     key={book.id}
                     book={book}
                     addOrDelete={this.props.addOrDelete}
+                    showBookDetails={this.props.showBookDetails}
                     inCollection={true}
+
                 />
             ))
         }

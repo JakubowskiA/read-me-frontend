@@ -18,6 +18,7 @@ class BooksContainer extends Component {
         searchedBooks: [],
         myBooks: [],
         displayedBook: {},
+        displayedBookInCollection: false
     }
     submitSearch = (input) => {
         fetch(`${BASE_URL}/users/${TEST_USER_ID}/search/${input.searchInputAuthor}`)
@@ -68,14 +69,15 @@ class BooksContainer extends Component {
         // ADD BOOK TO MY BOOKS
     }
 
-    showBookDetails = (book) => {
+    showBookDetails = (book, inCollection) => {
         // SHOW BOOK DETAILS
         // this.setState({displayedBook: book})
         // console.log(book)
+
         fetch(`${BASE_URL}/users/1/book_detail/${book.id}`)
             .then(res => res.json())
             .then(book => {
-                this.setState({ displayedBook: book });
+                this.setState({ displayedBook: book, displayedBookInCollection: inCollection });
                 this.props.history.push('/display-book')
             }
             )
@@ -105,6 +107,9 @@ class BooksContainer extends Component {
                             <Fragment>
                                 <SearchForm submitSearch={this.submitSearch} />
                                 <DisplayBook
+                                    displayedBookInCollection={this.state.displayedBookInCollection}
+                                    addToMyBooks={this.addToMyBooks}
+                                    deleteFromMyBooks={this.deleteFromMyBooks}
                                     book={this.state.displayedBook}
                                 />
                                 <MyBooksSidebar myBooks={this.state.myBooks} />
