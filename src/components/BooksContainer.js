@@ -97,7 +97,8 @@ class BooksContainer extends Component {
                                 <SearchForm submitSearch={this.submitSearch} />
                                 <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks} showBookDetails={this.showBookDetails}
                                 />
-                                <MyBooksSidebar myBooks={this.state.myBooks} />
+                                <MyBooksSidebar myBooks={this.state.myBooks}
+                                showBookDetails={this.showBookDetails} />
                             </Fragment>
                         )}
                     />
@@ -112,7 +113,9 @@ class BooksContainer extends Component {
                                     deleteFromMyBooks={this.deleteFromMyBooks}
                                     book={this.state.displayedBook}
                                 />
-                                <MyBooksSidebar myBooks={this.state.myBooks} />
+                                <MyBooksSidebar myBooks={this.state.myBooks}
+                                showBookDetails={this.showBookDetails}
+                                />
                             </Fragment>
                         )}
 
