@@ -31,6 +31,10 @@
    display:block;
 } */
 
+/* .test {
+  width: 100%;
+} */
+
 .display-book {
   width: 80%;
 }
@@ -38,6 +42,8 @@
 .searched-books-container{
   width: 80%;
 }
+
+
 
 .my-books-container{
   width: 20%;

@@ -91,7 +91,6 @@ class BooksContainer extends Component {
 
     render() {
         return (
-            <div>
 
                 <div className="component-row">
                     <Route
@@ -136,7 +135,6 @@ class BooksContainer extends Component {
 
                     />
 
-                </div>
             </div>
         )
     }
