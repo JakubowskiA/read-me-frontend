@@ -6,7 +6,7 @@ class MyBooksPage extends Component {
 
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const myBooks = this.props.myBooks //GRAB MY BOOKS INFO
         let response
         if (myBooks.length === 0) {
@@ -19,7 +19,6 @@ class MyBooksPage extends Component {
                     addOrDelete={this.props.addOrDelete}
                     showBookDetails={this.props.showBookDetails}
                     inCollection={true}
-
                 />
             ))
         }
@@ -28,10 +27,9 @@ class MyBooksPage extends Component {
             <div className="test">
                 <h2>My Books Page</h2>
                 <br />
-                <Card.Group itemsPerRow={3} className="my-books-container">
+                <Card.Group itemsPerRow={4} className="my-books-container">
                     {response}
                 </Card.Group>
-
             </div>
         )
     }
