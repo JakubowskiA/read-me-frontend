@@ -8,11 +8,11 @@ class Navbar extends React.Component {
     return (
       <Menu>
         <Container>
-          <Menu.Item onClick={_ => this.props.history.push("/my-books")} as="a" name="my-books" className="nav-item">
+          <Menu.Item onClick={_ => this.props.history.push("/books/my-books")} as="a" name="my-books" className="nav-item">
             My Books
           </Menu.Item>
 
-          <Menu.Item onClick={_ => this.props.history.push("/search-books")} as="a" name="search" className="nav-item">
+          <Menu.Item onClick={_ => this.props.history.push("/books/search-books")} as="a" name="search" className="nav-item">
             Search
           </Menu.Item>
 
