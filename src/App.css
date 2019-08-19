@@ -46,6 +46,7 @@
 .my-books-sidebar{
   width: 20%;
   margin: 20px;
+  text-align: left;
 }
 
 .my-books-container{
