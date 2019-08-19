@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Book from './Book'
 
-class MyBooksSidebar extends Component{
+class MyBooksSidebar extends Component {
 
 
-    render(){
+    render() {
         console.log(this.props);
 
-        const myBooks=this.props.myBooks //GRAB MY BOOKS INFO
+        const myBooks = this.props.myBooks //GRAB MY BOOKS INFO
         let response
-        if (myBooks.length === 0){
+        if (myBooks.length === 0) {
             response = "You have no books."
-        }else{
-            response = myBooks.map(book=>(
+        } else {
+            response = myBooks.map(book => (
                 <ul>
                     <li>
                         <a onClick={() => this.props.showBookDetails(book, true)}>{book.title} </a>
@@ -21,11 +21,11 @@ class MyBooksSidebar extends Component{
             ))
         }
 
-        return(
-            <div className="my-books-container">
-               <h2>My Books</h2>
-               <br/>
-               {response}
+        return (
+            <div className="my-books-sidebar">
+                <h2>My Books</h2>
+                <br />
+                {response}
             </div>
         )
     }
