@@ -38,7 +38,7 @@ class NewUserForm extends Component{
             .then(resp => resp.json())
             // .then(REDIRECT TO USER HOME PAGE????)
 
-        
+
     }
 
     render(){
@@ -57,7 +57,7 @@ class NewUserForm extends Component{
                 <Form.Button>Create Account</Form.Button>
                 </Form>
                 <br/>
-                
+
         </div>
         )
     }
