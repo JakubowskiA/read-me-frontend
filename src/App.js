@@ -8,17 +8,42 @@ import Welcome from './components/Welcome'
 
 
 class App extends Component {
-  // login=(userLogin)=>{
-  //   // LOGIN
-  // }
 
+  state = {
+    user: {}
+  }
+
+  signUpSubmit = (e, user) => {
+    e.preventDefault();
+    console.log('Sign Up User:', user);
+    fetch('http://localhost:3000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accepts: 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          name: "it me",
+          email: 'test@test',
+          password: 'test'
+        }
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('Response Data', data);
+        localStorage.setItem('token', data.token);
+        this.setState({ user: data.user });
+      });
+  };
   render() {
     return (
       <div className="App">
         <Route
           exact path="/"
           render={() => (
-            <Welcome />
+            <Welcome signUpSubmit={this.signUpSubmit} />
           )}
         />
         <Route

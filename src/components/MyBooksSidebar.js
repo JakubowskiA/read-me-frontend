@@ -7,7 +7,8 @@ class MyBooksSidebar extends Component {
     render() {
         console.log(this.props);
 
-        const myBooks = this.props.myBooks //GRAB MY BOOKS INFO
+        const myBooks = this.props.myBooks ? this.props.myBooks : []
+        console.log(myBooks) //GRAB MY BOOKS INFO
         let response
         if (myBooks.length === 0) {
             response = "You have no books."
