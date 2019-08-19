@@ -1,15 +1,14 @@
 import React from 'react'
-import {Image} from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
+
 
 const DisplayBook = (props) => {
 
-
-
-  return(
+  return (
     <div>
       <h2> {props.book.title} </h2>
       <h3> By: {props.book.author} </h3>
-      <Image src={props.book.image} centered/>
+      <Image src={props.book.image} centered />
       <h3> {props.book.description} </h3>
       <button
         type="button"
