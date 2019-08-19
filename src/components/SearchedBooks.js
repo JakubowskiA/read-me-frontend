@@ -16,7 +16,7 @@ class SearchedBooks extends Component{
             />
         ))
         return(
-            <Card.Group itemsPerRow={5} className="searched-books-container">
+            <Card.Group itemsPerRow={3} className="searched-books-container">
                 {retrievedBooks}
             </Card.Group>
         )
