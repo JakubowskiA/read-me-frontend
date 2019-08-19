@@ -21,7 +21,7 @@ class BooksContainer extends Component {
         displayedBookInCollection: false
     }
     submitSearch = (input) => {
-        this.props.history.push('/search-books')
+        this.props.history.push('/books/search-books')
         fetch(`${BASE_URL}/users/${TEST_USER_ID}/search/${input.searchInputAuthor}`)
             .then(res => res.json())
             .then(data => this.setState({ searchedBooks: data }))
@@ -29,7 +29,7 @@ class BooksContainer extends Component {
     }
 
     deleteFromMyBooks = (bookObj) => {
-        this.props.history.push('/my-books')
+        this.props.history.push('/books/my-books')
 
         fetch(`${BASE_URL}/user_books/1/${bookObj.id}`, {
             method: "DELETE", headers: {
@@ -54,7 +54,7 @@ class BooksContainer extends Component {
     }
 
     addToMyBooks = (book) => {
-        this.props.history.push('/my-books')
+        this.props.history.push('/books/my-books')
 
         fetch(`${BASE_URL}/user_books`,
             {
@@ -82,7 +82,7 @@ class BooksContainer extends Component {
             .then(res => res.json())
             .then(book => {
                 this.setState({ displayedBook: book, displayedBookInCollection: inCollection });
-                this.props.history.push('/display-book')
+                this.props.history.push('/books/display-book')
             }
             )
     }
@@ -92,48 +92,48 @@ class BooksContainer extends Component {
     render() {
         return (
 
-                <div className="component-row">
-                    <Route
-                        path="/search-books"
-                        render={() => (
-                            <Fragment>
-                                <SearchForm submitSearch={this.submitSearch} />
-                                <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks} showBookDetails={this.showBookDetails}
-                                />
-                                <MyBooksSidebar myBooks={this.state.myBooks}
+            <div className="component-row">
+                <Route
+                    path="/books/search-books"
+                    render={() => (
+                        <Fragment>
+                            <SearchForm submitSearch={this.submitSearch} />
+                            <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks} showBookDetails={this.showBookDetails}
+                            />
+                            <MyBooksSidebar myBooks={this.state.myBooks}
                                 showBookDetails={this.showBookDetails} />
-                            </Fragment>
-                        )}
-                    />
-                    <Route
-                        path="/display-book"
-                        render={() => (
-                            <Fragment>
-                                <SearchForm submitSearch={this.submitSearch} />
-                                <DisplayBook
-                                    displayedBookInCollection={this.state.displayedBookInCollection}
-                                    addToMyBooks={this.addToMyBooks}
-                                    deleteFromMyBooks={this.deleteFromMyBooks}
-                                    book={this.state.displayedBook}
-                                />
-                                <MyBooksSidebar myBooks={this.state.myBooks}
+                        </Fragment>
+                    )}
+                />
+                <Route
+                    path="/books/display-book"
+                    render={() => (
+                        <Fragment>
+                            <SearchForm submitSearch={this.submitSearch} />
+                            <DisplayBook
+                                displayedBookInCollection={this.state.displayedBookInCollection}
+                                addToMyBooks={this.addToMyBooks}
+                                deleteFromMyBooks={this.deleteFromMyBooks}
+                                book={this.state.displayedBook}
+                            />
+                            <MyBooksSidebar myBooks={this.state.myBooks}
                                 showBookDetails={this.showBookDetails}
-                                />
-                            </Fragment>
-                        )}
+                            />
+                        </Fragment>
+                    )}
 
-                    />
+                />
 
-                    <Route
-                        path="/my-books"
-                        render={() => (
+                <Route
+                    path="/books/my-books"
+                    render={() => (
 
-                            <MyBooksPage myBooks={this.state.myBooks}
-                                addOrDelete={this.deleteFromMyBooks}
-                                showBookDetails={this.showBookDetails} />
-                        )}
+                        <MyBooksPage myBooks={this.state.myBooks}
+                            addOrDelete={this.deleteFromMyBooks}
+                            showBookDetails={this.showBookDetails} />
+                    )}
 
-                    />
+                />
 
             </div>
         )

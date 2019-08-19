@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
 import { Route } from 'react-router-dom';
 import './App.css';
@@ -12,29 +12,28 @@ class App extends Component {
   //   // LOGIN
   // }
 
-  render (){
-  return (
-    <div className="App">
-      <Route
-                        exact path="/"
-                        render={() => (
-                          <Welcome />
-                        )}
-                    />
-      <Route
-                        path="/books"
-                        render={() => (
-                          <Fragment>
-                            <Header />
-                            <BooksContainer />
-                          </Fragment>
-                        )}
-                    />            
-      
-      
-    </div>
-  );
-}
+  render() {
+    return (
+      <div className="App">
+        <Route
+          exact path="/"
+          render={() => (
+            <Welcome />
+          )}
+        />
+        <Route
+          path="/books"
+          render={() => (
+            <Fragment>
+              <Header />
+              <BooksContainer />
+            </Fragment>
+          )}
+        />
+
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -46,11 +46,11 @@
 .my-books-sidebar{
   width: 20%;
   margin: 20px;
+  text-align: left;
 }
 
 .my-books-container{
   width: 100%;
-  text-align: left;
   /* margin: 20px; */
 }
 
