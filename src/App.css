@@ -23,6 +23,10 @@
   max-height: 35vh;
 }
 
+.image {
+  height: 200px;
+}
+
 .searched-books-container{
   width: 85%;
 }
