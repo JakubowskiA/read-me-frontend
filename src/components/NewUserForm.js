@@ -21,13 +21,33 @@ class NewUserForm extends Component{
         this.setState({email:event.target.value})
     }
 
+    newUser = (user) => {
+        // console.log(book)
+        fetch(`${BASE_URL}/user MORE TO URL`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                }, body: JSON.stringify({
+                    username:user.username,
+                    email:user.email,
+                    password:user.password
+                })
+            })
+            .then(resp => resp.json())
+            // .then(REDIRECT TO USER HOME PAGE????)
+
+        
+    }
+
     render(){
         return(
             <div>
             <br/>
             <h1>Sign Up</h1>
             <br/>
-            <Form onSubmit={() => this.props.login(this.state)}>
+            <Form onSubmit={() => this.newUser(this.state)}>
                 <Form.Group widths="equal">
                     <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username}/>
                     <Form.Input placeholder="Enter your email address" onChange={this.handleChangeEmail} value={this.state.email}/>
