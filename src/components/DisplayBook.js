@@ -5,7 +5,7 @@ import { Image } from 'semantic-ui-react'
 const DisplayBook = (props) => {
 
   return (
-    <div>
+    <div className="display-book">
       <h2> {props.book.title} </h2>
       <h3> By: {props.book.author} </h3>
       <Image src={props.book.image} centered />

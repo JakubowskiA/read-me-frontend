@@ -27,18 +27,22 @@
   height: 200px;
 }
 
-li a {
+/* li a {
    display:block;
+} */
+
+.display-book {
+  width: 80%;
 }
 
 .searched-books-container{
-  width: 85%;
+  width: 80%;
 }
 
 .my-books-container{
-  width: 15%;
+  width: 20%;
   text-align: left;
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 .component-row{display:flex;
