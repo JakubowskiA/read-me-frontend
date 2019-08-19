@@ -39,8 +39,13 @@
   width: 80%;
 }
 
-.my-books-container{
+.my-books-sidebar{
   width: 20%;
+  margin: 20px;
+}
+
+.my-books-container{
+  width: 100%;
   text-align: left;
   /* margin: 20px; */
 }
