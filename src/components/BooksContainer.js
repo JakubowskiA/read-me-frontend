@@ -92,23 +92,23 @@ class BooksContainer extends Component {
     render() {
         return (
 
-            <div className="component-row">
+            <Fragment>
                 <Route
                     path="/books/search-books"
                     render={() => (
-                        <Fragment>
+                        <div className="component-row">
                             <SearchForm submitSearch={this.submitSearch} />
                             <SearchedBooks searchedBooks={this.state.searchedBooks} addToMyBooks={this.addToMyBooks} showBookDetails={this.showBookDetails}
                             />
                             <MyBooksSidebar myBooks={this.state.myBooks}
                                 showBookDetails={this.showBookDetails} />
-                        </Fragment>
+                        </div>
                     )}
                 />
                 <Route
                     path="/books/display-book"
                     render={() => (
-                        <Fragment>
+                        <div className="component-row">
                             <SearchForm submitSearch={this.submitSearch} />
                             <DisplayBook
                                 displayedBookInCollection={this.state.displayedBookInCollection}
@@ -119,7 +119,7 @@ class BooksContainer extends Component {
                             <MyBooksSidebar myBooks={this.state.myBooks}
                                 showBookDetails={this.showBookDetails}
                             />
-                        </Fragment>
+                        </div>
                     )}
 
                 />
@@ -135,7 +135,7 @@ class BooksContainer extends Component {
 
                 />
 
-            </div>
+            </Fragment>
         )
     }
 }
