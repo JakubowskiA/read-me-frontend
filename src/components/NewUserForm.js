@@ -1,31 +1,46 @@
 import React, {Component} from 'react';
 import { Form } from 'semantic-ui-react';
 
-class Welcome extends Component{
+
+class NewUserForm extends Component{
     state={
         username:"",
+        email:"",
         password:""
     }
-render(){
-    return(
-        <div>
+
+    handleChangeUsername = event =>{
+        this.setState({username:event.target.value})
+    }
+
+    handleChangePassword = event =>{
+        this.setState({password:event.target.value})
+    }
+
+    handleChangeEmail = event =>{
+        this.setState({email:event.target.value})
+    }
+
+    render(){
+        return(
+            <div>
             <br/>
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
             <br/>
             <Form onSubmit={() => this.props.login(this.state)}>
                 <Form.Group widths="equal">
                     <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username}/>
+                    <Form.Input placeholder="Enter your email address" onChange={this.handleChangeEmail} value={this.state.email}/>
                     <Form.Input placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password}/>
                 </Form.Group>
                 <br/>
-                <Form.Button>Submit</Form.Button>
+                <Form.Button>Create Account</Form.Button>
                 </Form>
                 <br/>
-                <h4>New User?</h4>
-                <a src='./NewUserForm'>Sign up here!</a>
+                
         </div>
-    )
-}
+        )
+    }
 }
 
-export default Welcome
+export default NewUserForm
