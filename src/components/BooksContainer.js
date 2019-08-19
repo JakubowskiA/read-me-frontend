@@ -21,6 +21,7 @@ class BooksContainer extends Component {
         displayedBookInCollection: false
     }
     submitSearch = (input) => {
+        this.props.history.push('/search-books')
         fetch(`${BASE_URL}/users/${TEST_USER_ID}/search/${input.searchInputAuthor}`)
             .then(res => res.json())
             .then(data => this.setState({ searchedBooks: data }))
@@ -28,6 +29,8 @@ class BooksContainer extends Component {
     }
 
     deleteFromMyBooks = (bookObj) => {
+        this.props.history.push('/my-books')
+
         fetch(`${BASE_URL}/user_books/1/${bookObj.id}`, {
             method: "DELETE", headers: {
                 "Content-Type": "application/json",
@@ -51,7 +54,8 @@ class BooksContainer extends Component {
     }
 
     addToMyBooks = (book) => {
-        // console.log(book)
+        this.props.history.push('/my-books')
+
         fetch(`${BASE_URL}/user_books`,
             {
                 method: "POST",
