@@ -22,10 +22,11 @@ class App extends Component {
           "Content-Type": "application/json",
           "Accept": "application/json"
         }, body: JSON.stringify({
-          user:{
+          user: {
             name: user.name,
             email: user.email,
-            password: user.password}
+            password: user.password
+          }
         })
       })
       .then(resp => resp.json())
@@ -36,6 +37,31 @@ class App extends Component {
         this.props.history.push('/books');
       })
   }
+
+  login = (user) => {
+    fetch(`${BASE_URL}/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }, body: JSON.stringify({
+          email: user.email,
+          password: user.password
+
+        })
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data !== {}) {
+          console.log('Login response Data', data);
+          localStorage.setItem('read-me-user-token', data.token);
+          this.setState({ user: data.user });
+          this.props.history.push('/books');
+        }
+      })
+  }
+
 
   componentWillMount() {
     let token = localStorage.getItem('read-me-user-token');
@@ -53,9 +79,10 @@ class App extends Component {
           this.setState({ user: user });
           this.props.history.push('/books');
         });
-    }else{
+    } else {
       this.props.history.push('/')
-    }}
+    }
+  }
 
   render() {
     return (
@@ -77,7 +104,7 @@ class App extends Component {
           render={() => (
             <Fragment>
               <Header />
-              <BooksContainer userId={this.state.user.id}/>
+              <BooksContainer userId={this.state.user.id} />
             </Fragment>
           )}
         />
