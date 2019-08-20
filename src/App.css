@@ -9,8 +9,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 48pt;
-  color: rgb(15, 2, 85);
+  font-size: 80pt;
+  color: rgb(21, 124, 228);
 }
 
 .App-link {
@@ -62,15 +62,16 @@
   width: 100%;
 }
 
-.component-row{
-  display:flex;
-  flex-direction:row;}
+.component-row{display:flex;
+  flex-direction:row;
+}
 
 .nav-item{
-  font-size: 14pt;
+  font-size: 16pt;
   width: 7em;
   text-align: center;
   align-content: center;
+  background-color: rgb(5, 100, 194);
 }
 
 .book-card{
@@ -78,9 +79,9 @@
 }
 
 .book-background{
-
-  /* background-image: url('./book.jpg') !important; */
-  background-image: url('https://preview.redd.it/ijyuj3s0o7p21.jpg?width=1024&auto=webp&s=974d0383522f920ce9f592a3b1772e7258ab19d2') !important;
+  
+  background-image: url('./book.jpg') !important;
+  /* background-image: url('https://preview.redd.it/ijyuj3s0o7p21.jpg?width=1024&auto=webp&s=974d0383522f920ce9f592a3b1772e7258ab19d2') !important; */
   background-size: cover !important;
   margin: 0px;
   padding: 0px;
@@ -90,7 +91,7 @@
 
 .login-card{
   width: 30%;
-  margin-left: 15%;
+  margin-left: 10%;
   padding-top: 3%
 }
 
