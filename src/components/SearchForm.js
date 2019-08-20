@@ -6,7 +6,7 @@ class SearchForm extends Component{
     state={
         // searchInputTitle:'',
         searchInputAuthor:'',
-        // searchInputGenre:'' 
+        // searchInputGenre:''
     }
 
     // handleChangeTitle = event =>{
@@ -24,7 +24,8 @@ class SearchForm extends Component{
 
     render(){
         return(
-            <div className="container">
+
+            <div className="search-container">
                 <h2>Look for a book</h2>
                 <br/>
                 <Form onSubmit={() => this.props.submitSearch(this.state)}>

@@ -31,12 +31,21 @@
   width: 100%;
 } */
 
-.card-buttons {
-  vertical-align: bottom !important;
+/* .card-button1 {
+  vertical-align: bottom;
 }
+
+.card-button2 {
+  vertical-align: bottom;
+} */
 
 .display-book {
   width: 80%;
+}
+
+.search-container{
+  width: 20%;
+  margin: 20px;
 }
 
 .searched-books-container{
