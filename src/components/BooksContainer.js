@@ -11,18 +11,18 @@ import DisplayBook from './DisplayBook';
 // CONDITIONAL RENDERING OF COMPONENTS
 
 const BASE_URL = "http://localhost:3000"
-const TEST_USER_ID = 1;
+
 
 class BooksContainer extends Component {
     state = {
         searchedBooks: [],
         myBooks: [],
         displayedBook: {},
-        displayedBookInCollection: false
+        displayedBookInCollection: false,
     }
     submitSearch = (input) => {
         this.props.history.push('/books/search-books')
-        fetch(`${BASE_URL}/users/${TEST_USER_ID}/search/${input.searchInputAuthor}`)
+        fetch(`${BASE_URL}/users/${this.props.userId}/search/${input.searchInputAuthor}`)
             .then(res => res.json())
             .then(data => this.setState({ searchedBooks: data }))
         // SUBMIT SEARCH FORM
@@ -31,7 +31,7 @@ class BooksContainer extends Component {
     deleteFromMyBooks = (bookObj) => {
         this.props.history.push('/books/my-books')
 
-        fetch(`${BASE_URL}/user_books/1/${bookObj.id}`, {
+        fetch(`${BASE_URL}/user_books/${this.props.userId}/${bookObj.id}`, {
             method: "DELETE", headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
@@ -46,9 +46,13 @@ class BooksContainer extends Component {
         )
     }
 
-
+    componentWillMount(){
+        if (!this.props.userId){
+            this.props.history.push('/')
+        }
+    }
     componentDidMount() {
-        fetch(`${BASE_URL}/users/${TEST_USER_ID}/my_books`)
+        fetch(`${BASE_URL}/users/${this.props.userId}/my_books`)
             .then(res => res.json())
             .then(data => this.setState({ myBooks: data }))
     }
@@ -63,7 +67,7 @@ class BooksContainer extends Component {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 }, body: JSON.stringify({
-                    user_id: 1,
+                    user_id: this.props.userId,
                     book_id: book.id
                 })
             })
@@ -78,7 +82,7 @@ class BooksContainer extends Component {
         // this.setState({displayedBook: book})
         // console.log(book)
 
-        fetch(`${BASE_URL}/users/1/book_detail/${book.id}`)
+        fetch(`${BASE_URL}/users/${this.props.userId}/book_detail/${book.id}`)
             .then(res => res.json())
             .then(book => {
                 this.setState({ displayedBook: book, displayedBookInCollection: inCollection });
@@ -90,6 +94,8 @@ class BooksContainer extends Component {
 
 
     render() {
+        console.log('user id',this.props.userId);
+        
         return (
 
             <Fragment>
