@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import logo from './logo.svg';
 import { Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -31,7 +30,7 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(data => {
-        if (data.status == 422) {
+        if (data.status === 422) {
           alert('Email already taken!')
         }
         else {

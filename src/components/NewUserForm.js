@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-const BASE_URL = "http://localhost:3000"
-
 
 class NewUserForm extends Component {
     state = {
