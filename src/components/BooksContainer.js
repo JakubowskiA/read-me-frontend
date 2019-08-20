@@ -46,15 +46,15 @@ class BooksContainer extends Component {
         )
     }
 
-    componentWillMount(){
-        if (!this.props.userId){
+    componentDidMount() {
+        if (!this.props.userId) {
             this.props.history.push('/')
         }
-    }
-    componentDidMount() {
-        fetch(`${BASE_URL}/users/${this.props.userId}/my_books`)
-            .then(res => res.json())
-            .then(data => this.setState({ myBooks: data }))
+        else {
+            fetch(`${BASE_URL}/users/${this.props.userId}/my_books`)
+                .then(res => res.json())
+                .then(data => this.setState({ myBooks: data }))
+        }
     }
 
     addToMyBooks = (book) => {
@@ -94,8 +94,8 @@ class BooksContainer extends Component {
 
 
     render() {
-        console.log('user id',this.props.userId);
-        
+        console.log('user id', this.props.userId);
+
         return (
 
             <Fragment className="container">
