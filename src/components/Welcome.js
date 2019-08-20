@@ -26,7 +26,7 @@ class Welcome extends Component {
                             <br />
                             <h1>Sign In</h1>
                             <br />
-                            <Form onSubmit={() => this.props.login(this.state)} >
+                            <Form onSubmit={this.props.login} >
 
                                 <Form.Field>
                                     <Form.Input placeholder="Enter your email address" onChange={this.handleChangeEmail} value={this.state.email} />

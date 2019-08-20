@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import BooksContainer from './components/BooksContainer'
@@ -22,19 +22,67 @@ class App extends Component {
           "Content-Type": "application/json",
           "Accept": "application/json"
         }, body: JSON.stringify({
-          name: user.name,
-          email: user.email,
-          password: user.password
+          user: {
+            name: user.name,
+            email: user.email,
+            password: user.password
+          }
         })
       })
       .then(resp => resp.json())
       .then(data => {
         console.log('Response Data', data);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('read-me-user-token', data.token);
         this.setState({ user: data.user });
+        this.props.history.push('/books');
       })
   }
 
+  login = (user) => {
+    fetch(`${BASE_URL}/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }, body: JSON.stringify({
+          email: user.email,
+          password: user.password
+
+        })
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data !== {}) {
+          console.log('Login response Data', data);
+          localStorage.setItem('read-me-user-token', data.token);
+          this.setState({ user: data.user });
+          this.props.history.push('/books');
+        }
+      })
+  }
+
+
+  componentWillMount() {
+    let token = localStorage.getItem('read-me-user-token');
+    if (token) {
+      fetch(`${BASE_URL}/retrieve_user`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accepts: 'application/json',
+          Authorization: `${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(user => {
+          this.setState({ user: user });
+          this.props.history.push('/books');
+        });
+    } else {
+      this.props.history.push('/')
+    }
+  }
 
   render() {
     return (
@@ -48,12 +96,6 @@ class App extends Component {
         <Route
           path="/sign-up"
           render={() => (
-            <NewUserForm createUser={this.creatUser} />
-          )}
-        />
-        <Route
-          path="/new-user"
-          render={() => (
             <NewUserForm createUser={this.createUser} />
           )}
         />
@@ -62,7 +104,7 @@ class App extends Component {
           render={() => (
             <Fragment>
               <Header />
-              <BooksContainer />
+              <BooksContainer userId={this.state.user.id} />
             </Fragment>
           )}
         />
@@ -70,4 +112,6 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+export default withRouter(App);
+
