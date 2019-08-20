@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 class Navbar extends React.Component {
 
-  logout=()=>{
+  logout = () => {
     window.localStorage.removeItem('read-me-user-token')
     this.props.history.push("/")
   }

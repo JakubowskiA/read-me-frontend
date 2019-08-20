@@ -53,7 +53,8 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(data => {
-        if (data !== {}) {
+        console.log(data)
+        if (Object.entries(data).length > 0) {
           console.log('Login response Data', data);
           localStorage.setItem('read-me-user-token', data.token);
           this.setState({ user: data.user });
@@ -63,9 +64,9 @@ class App extends Component {
   }
 
 
-  componentWillMount() {
+  componentDidMount() {
     let token = localStorage.getItem('read-me-user-token');
-    if (token) {
+    if (token !== "undefined") {
       fetch(`${BASE_URL}/retrieve_user`, {
         method: 'GET',
         headers: {
@@ -79,8 +80,6 @@ class App extends Component {
           this.setState({ user: user });
           this.props.history.push('/books');
         });
-    } else {
-      this.props.history.push('/')
     }
   }
 
