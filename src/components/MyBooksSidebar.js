@@ -13,11 +13,13 @@ class MyBooksSidebar extends Component {
             response = "You have no books."
         } else {
             response = myBooks.map(book => (
-                <ul>
-                    <li>
-                        <a key={book.id} onClick={() => this.props.showBookDetails(book, true)}>{book.title} </a>
-                    </li>
-                </ul>
+
+                <>
+                    <a key={book.id} onClick={() => this.props.showBookDetails(book, true)}>{book.title} </a>
+                    <br/>
+                    <br/>
+                </>
+
             ))
         }
 
