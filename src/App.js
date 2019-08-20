@@ -7,6 +7,7 @@ import BooksContainer from './components/BooksContainer'
 import Welcome from './components/Welcome'
 import NewUserForm from './components/NewUserForm'
 
+const BASE_URL = "http://localhost:3000"
 
 class App extends Component {
   // login=(userLogin)=>{
@@ -21,7 +22,7 @@ class App extends Component {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 }, body: JSON.stringify({
-                    username:user.username,
+                    name:user.name,
                     email:user.email,
                     password:user.password
                 })

@@ -4,9 +4,18 @@ import { Card } from 'semantic-ui-react';
 
 class Welcome extends Component{
     state={
-        username:"",
+        email:"",
         password:""
     }
+
+    handleChangePassword = event =>{
+        this.setState({password:event.target.value})
+    }
+
+    handleChangeEmail = event =>{
+        this.setState({email:event.target.value})
+    }
+
 render(){
     return(
         <div className="book-background">
@@ -19,7 +28,7 @@ render(){
             <Form onSubmit={() => this.props.login(this.state)} >
                 
                     <Form.Field>
-                    <Form.Input placeholder="Enter your username" onChange={this.handleChangeUsername} value={this.state.username}/>
+                    <Form.Input placeholder="Enter your email address" onChange={this.handleChangeEmail} value={this.state.email}/>
                     </Form.Field>
                     <br/>
                     <Form.Field>
