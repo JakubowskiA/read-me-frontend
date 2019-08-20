@@ -4,13 +4,13 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 35vh;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 48pt;
-  color: rgb(255, 255, 255);
+  color: rgb(15, 2, 85);
 }
 
 .App-link {
@@ -18,9 +18,9 @@
 }
 
 .header-image {
-  background-image: url('./book.jpg') !important;
+  background-image: url('./bookrow.jpeg') !important;
   background-size: cover !important;
-  max-height: 35vh;
+  max-height: 20vh;
 }
 
 .image {
@@ -91,4 +91,9 @@
 
 .gradient-background{
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.container{
+  margin: 2%;
+  /* padding: 2% */
 }
