@@ -39,6 +39,7 @@ class App extends Component {
   }
 
   login = (user) => {
+    console.log(user)
     fetch(`${BASE_URL}/login`,
       {
         method: "POST",
@@ -53,7 +54,7 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(data => {
-        if (data !== {}) {
+        if (Object.keys(data).length > 0) {
           console.log('Login response Data', data);
           localStorage.setItem('read-me-user-token', data.token);
           this.setState({ user: data.user });
@@ -63,7 +64,7 @@ class App extends Component {
   }
 
 
-  componentWillMount() {
+  componentDidMount() {
     let token = localStorage.getItem('read-me-user-token');
     if (token) {
       fetch(`${BASE_URL}/retrieve_user`, {
