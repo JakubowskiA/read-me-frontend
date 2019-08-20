@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Menu } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 
 class Navbar extends React.Component {
@@ -20,7 +20,7 @@ class Navbar extends React.Component {
         <Menu.Item onClick={_ => this.props.history.push("/books/search-books")} as="a" name="search" className="nav-item">
           Search
         </Menu.Item>
-        
+
         <Menu.Item as="a" onClick={this.logout} name="login" className="nav-item">
           Logout
 
