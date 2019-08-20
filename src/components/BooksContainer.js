@@ -46,8 +46,8 @@ class BooksContainer extends Component {
         )
     }
 
-    componentWillMount(){
-        if (!this.props.userId){
+    componentWillMount() {
+        if (!this.props.userId) {
             this.props.history.push('/')
         }
     }
@@ -94,11 +94,11 @@ class BooksContainer extends Component {
 
 
     render() {
-        console.log('user id',this.props.userId);
-        
+        console.log('user id', this.props.userId);
+
         return (
 
-            <Fragment className="container">
+            <Fragment>
                 <Route
                     path="/books/search-books"
                     render={() => (
