@@ -4,6 +4,11 @@ import { withRouter } from 'react-router-dom';
 
 class Navbar extends React.Component {
 
+  logout=()=>{
+    window.localStorage.removeItem('read-me-user-token')
+    this.props.history.push("/")
+  }
+
   render() {
     return (
       <Menu>
@@ -17,7 +22,7 @@ class Navbar extends React.Component {
           </Menu.Item>
 
           {/* <Menu.Menu position="right"> */}
-          <Menu.Item as="a" onClick={_ => this.props.history.push("/")} name="login" className="nav-item">
+          <Menu.Item as="a" onClick={this.logout} name="login" className="nav-item">
             Logout
           </Menu.Item>
 
