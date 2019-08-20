@@ -17,13 +17,9 @@ class Navbar extends React.Component {
           </Menu.Item>
 
           {/* <Menu.Menu position="right"> */}
-          <Menu.Item as="a" name="login" className="nav-item">
-            Login
-            </Menu.Item>
-
-          <Menu.Item as="a" name="register" className="nav-item">
-            Register
-            </Menu.Item>
+          <Menu.Item as="a" onClick={_ => this.props.history.push("/")} name="login" className="nav-item">
+            Logout
+          </Menu.Item>
 
           {/* </Menu.Menu> */}
         </Container>

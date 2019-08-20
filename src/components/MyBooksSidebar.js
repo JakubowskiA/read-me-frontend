@@ -5,7 +5,7 @@ class MyBooksSidebar extends Component {
 
 
     render() {
-        console.log(this.props);
+        console.log(this.props.myBooks);
 
         const myBooks = this.props.myBooks //GRAB MY BOOKS INFO
         let response
