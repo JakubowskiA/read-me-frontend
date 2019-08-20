@@ -64,6 +64,8 @@ class App extends Component {
           localStorage.setItem('read-me-user-token', data.token);
           this.setState({ user: data.user });
           this.props.history.push('/books');
+        } else {
+          alert("Invalid username or password")
         }
       })
   }
