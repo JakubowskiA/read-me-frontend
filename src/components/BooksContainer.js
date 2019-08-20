@@ -98,7 +98,7 @@ class BooksContainer extends Component {
         
         return (
 
-            <Fragment>
+            <Fragment className="container">
                 <Route
                     path="/books/search-books"
                     render={() => (

@@ -33,7 +33,7 @@ class Welcome extends Component {
                                 </Form.Field>
                                 <br />
                                 <Form.Field>
-                                    <Form.Input placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password} />
+                                    <Form.Input type="password" placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password} />
                                 </Form.Field>
 
                                 <br />
