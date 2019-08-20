@@ -6,23 +6,18 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Menu>
-        <Container>
-          <Menu.Item onClick={_ => this.props.history.push("/books/my-books")} as="a" name="my-books" className="nav-item">
-            My Books
-          </Menu.Item>
+      <Menu fluid widths={3}>
+        <Menu.Item onClick={_ => this.props.history.push("/books/my-books")} as="a" name="my-books" className="nav-item">
+          My Books
+        </Menu.Item>
 
-          <Menu.Item onClick={_ => this.props.history.push("/books/search-books")} as="a" name="search" className="nav-item">
-            Search
-          </Menu.Item>
+        <Menu.Item onClick={_ => this.props.history.push("/books/search-books")} as="a" name="search" className="nav-item">
+          Search
+        </Menu.Item>
 
-          {/* <Menu.Menu position="right"> */}
-          <Menu.Item as="a" onClick={_ => this.props.history.push("/")} name="login" className="nav-item">
-            Logout
-          </Menu.Item>
-
-          {/* </Menu.Menu> */}
-        </Container>
+        <Menu.Item as="a" onClick={_ => this.props.history.push("/")} name="login" className="nav-item">
+          Logout
+        </Menu.Item>
       </Menu>
     )
   }

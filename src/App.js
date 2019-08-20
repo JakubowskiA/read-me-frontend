@@ -66,10 +66,8 @@ class App extends Component {
             </Fragment>
           )}
         />
-
       </div>
     );
   }
 }
-
 export default App;
