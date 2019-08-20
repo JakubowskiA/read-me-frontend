@@ -15,7 +15,7 @@ class MyBooksSidebar extends Component {
             response = myBooks.map(book => (
                 <ul>
                     <li>
-                        <a onClick={() => this.props.showBookDetails(book, true)}>{book.title} </a>
+                        <a key={book.id} onClick={() => this.props.showBookDetails(book, true)}>{book.title} </a>
                     </li>
                 </ul>
             ))
@@ -24,6 +24,7 @@ class MyBooksSidebar extends Component {
         return (
             <div className="my-books-sidebar">
                 <h2>My Books</h2>
+                <br />
                 {response}
             </div>
         )
