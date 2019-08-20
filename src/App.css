@@ -26,14 +26,14 @@
 .image {
   height: 200px;
 }
-
-/* li a {
-   display:block;
-} */
-
-/* .test {
+/*
+.test {
   width: 100%;
 } */
+
+.card-buttons {
+  vertical-align: bottom !important;
+}
 
 .display-book {
   width: 80%;
@@ -51,7 +51,6 @@
 
 .my-books-container{
   width: 100%;
-  margin: 20px;
 }
 
 .component-row{display:flex;
@@ -63,9 +62,6 @@
   text-align: center;
   align-content: center;
 }
-/* .test{
-  background-color: #61dafb;
-} */
 
 .book-card{
   padding: 3em;
