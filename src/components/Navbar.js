@@ -11,6 +11,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
+
       <Menu fluid widths={3}>
         <Menu.Item onClick={_ => this.props.history.push("/books/my-books")} as="a" name="my-books" className="nav-item">
           My Books
@@ -26,8 +27,8 @@ class Navbar extends React.Component {
           </Menu.Item>
 
         {/* </Menu.Menu> */}
-
       </Menu>
+
     )
   }
 }

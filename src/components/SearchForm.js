@@ -6,7 +6,7 @@ class SearchForm extends Component{
     state={
         // searchInputTitle:'',
         searchInputAuthor:'',
-        // searchInputGenre:'' 
+        // searchInputGenre:''
     }
 
     // handleChangeTitle = event =>{
@@ -24,7 +24,7 @@ class SearchForm extends Component{
 
     render(){
         return(
-            <div>
+            <div className="search-container">
                 <Form onSubmit={() => this.props.submitSearch(this.state)}>
                 <Form.Group widths="equal">
                     {/* <Form.Input placeholder="Enter a title" name="Title" onChange={this.handleChangeTitle} value={this.state.searchInputTitle}/> */}

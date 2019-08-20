@@ -31,12 +31,21 @@
   width: 100%;
 } */
 
-.card-buttons {
-  vertical-align: bottom !important;
+/* .card-button1 {
+  vertical-align: bottom;
 }
+
+.card-button2 {
+  vertical-align: bottom;
+} */
 
 .display-book {
   width: 80%;
+}
+
+.search-container{
+  width: 20%;
+  margin: 20px;
 }
 
 .searched-books-container{
@@ -53,7 +62,8 @@
   width: 100%;
 }
 
-.component-row{display:flex;
+.component-row{
+  display:flex;
   flex-direction:row;}
 
 .nav-item{
@@ -68,7 +78,7 @@
 }
 
 .book-background{
-  
+
   /* background-image: url('./book.jpg') !important; */
   background-image: url('https://preview.redd.it/ijyuj3s0o7p21.jpg?width=1024&auto=webp&s=974d0383522f920ce9f592a3b1772e7258ab19d2') !important;
   background-size: cover !important;

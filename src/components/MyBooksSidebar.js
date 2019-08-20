@@ -24,7 +24,6 @@ class MyBooksSidebar extends Component {
         return (
             <div className="my-books-sidebar">
                 <h2>My Books</h2>
-                <br />
                 {response}
             </div>
         )

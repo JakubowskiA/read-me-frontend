@@ -6,6 +6,7 @@ const Header=()=>{
     <div>
         <h1 className="logo header-image App-header">Read Me</h1>
         <Navbar />
+        <br/>
     </div>
     )
 }
