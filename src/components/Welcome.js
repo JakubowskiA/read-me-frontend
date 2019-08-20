@@ -22,7 +22,7 @@ class Welcome extends Component {
             <div className="book-background">
                 <div className="login-card">
                     <div className="login-card-inner">
-                        <Card >
+                        {/* <Card > */}
                             <br />
                             <h1>Sign In</h1>
                             <br />
@@ -43,7 +43,7 @@ class Welcome extends Component {
                             <h3>New User?</h3>
                             <h3><a onClick={_ => this.props.history.push('/sign-up')}>Sign up here!</a></h3>
                             <br />
-                        </Card>
+                        {/* </Card> */}
                     </div>
                 </div>
             </div>
