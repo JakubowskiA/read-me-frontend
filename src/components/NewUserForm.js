@@ -10,42 +10,40 @@ class NewUserForm extends Component {
         password: ""
     }
 
-    handleChangeName = event => {
-        this.setState({ name: event.target.value })
+    isStateValid = () => {
+        return this.state.name && this.state.email && this.state.password
     }
 
-    handleChangePassword = event => {
-        this.setState({ password: event.target.value })
+    handleChange = event => {
+        const inputType = event.target.name
+        this.setState({
+            [inputType]: event.target.value
+        })
     }
-
-    handleChangeEmail = event => {
-        this.setState({ email: event.target.value })
-    }
-
 
     render() {
         return (
-            <div className="book-background"> 
-            <div className="login-card">
-                <br />
-                <h1>Sign Up</h1>
-                <br />
-                <Form onSubmit={() => this.props.createUser(this.state)}>
-                    {/* <Form.Group widths="equal"> */}
-                    <Form.Field>
-                        <Form.Input placeholder="Enter your name" onChange={this.handleChangeName} value={this.state.name} />
-                    </Form.Field>
-                    <Form.Field>    
-                        <Form.Input placeholder="Enter your email address" onChange={this.handleChangeEmail} value={this.state.email} />
-                    </Form.Field>
-                    <Form.Field> 
-                        <Form.Input type="password" placeholder="Enter your password" onChange={this.handleChangePassword} value={this.state.password} />
-                    </Form.Field>
-                    {/* </Form.Group> */}
+            <div className="book-background">
+                <div className="login-card">
                     <br />
-                    <Form.Button>Create Account</Form.Button>
-                </Form>
-                <br />
+                    <h1>Sign Up</h1>
+                    <br />
+                    <Form onSubmit={() => this.props.createUser(this.state)}>
+                        {/* <Form.Group widths="equal"> */}
+                        <Form.Field>
+                            <Form.Input name="name" placeholder="Enter your name" onChange={this.handleChange} value={this.state.name} />
+                        </Form.Field>
+                        <Form.Field>
+                            <Form.Input name="email" type="email" placeholder="Enter your email address" onChange={this.handleChange} value={this.state.email} />
+                        </Form.Field>
+                        <Form.Field>
+                            <Form.Input name="password" type="password" placeholder="Enter your password" onChange={this.handleChange} value={this.state.password} />
+                        </Form.Field>
+                        {/* </Form.Group> */}
+                        <br />
+                        <Form.Button disabled={!this.isStateValid()}>Create Account</Form.Button>
+                    </Form>
+                    <br />
                 </div>
             </div>
         )
