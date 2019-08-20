@@ -31,10 +31,15 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(data => {
-        console.log('Response Data', data);
-        localStorage.setItem('read-me-user-token', data.token);
-        this.setState({ user: data.user });
-        this.props.history.push('/books');
+        if (data.status == 422) {
+          alert('Email already taken!')
+        }
+        else {
+          console.log('Response Data', data);
+          localStorage.setItem('read-me-user-token', data.token);
+          this.setState({ user: data.user });
+          this.props.history.push('/books');
+        }
       })
   }
 
