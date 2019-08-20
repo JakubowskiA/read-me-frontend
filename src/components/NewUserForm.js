@@ -26,6 +26,7 @@ class NewUserForm extends Component {
     render() {
         return (
             <div className="book-background"> 
+            <div className="login-card">
                 <br />
                 <h1>Sign Up</h1>
                 <br />
@@ -45,7 +46,7 @@ class NewUserForm extends Component {
                     <Form.Button>Create Account</Form.Button>
                 </Form>
                 <br />
-
+                </div>
             </div>
         )
     }
