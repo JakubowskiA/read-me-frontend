@@ -22,7 +22,15 @@ class BooksContainer extends Component {
     }
     submitSearch = (input) => {
         this.props.history.push('/books/search-books')
-        fetch(`${BASE_URL}/users/${this.props.userId}/search/${input.searchInputAuthor}`)
+        fetch(`${BASE_URL}/users/${this.props.userId}/search`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Accepts: 'application/json',
+                Author: input.searchInputAuthor,
+                Title: input.searchInputTitle
+            }
+        })
             .then(res => res.json())
             .then(data => this.setState({ searchedBooks: data }))
         // SUBMIT SEARCH FORM
