@@ -43,13 +43,13 @@ h2{
   width: 100%;
 } */
 
-/* .card-button1 {
-  vertical-align: bottom;
-}
+.card-button1 { cursor: pointer; }
 
-.card-button2 {
-  vertical-align: bottom;
-} */
+.card-button1:hover { background-color: rgb(5, 130, 224)}
+
+.card-button2 { cursor: pointer; }
+
+.card-button2:hover { background-color: rgb(5, 130, 224)}
 
 .display-book {
   width: 80%;
@@ -124,4 +124,8 @@ ul {
 .container{
   margin: 2%;
   /* padding: 2% */
+}
+
+a {
+  cursor: pointer;
 }
