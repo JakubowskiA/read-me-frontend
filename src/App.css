@@ -53,6 +53,7 @@ h2{
 
 .display-book {
   width: 80%;
+  padding-bottom: 20px;
 }
 
 .search-container{
@@ -62,6 +63,10 @@ h2{
 
 .searched-books-container{
   width: 80%;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .my-books-sidebar{
@@ -91,7 +96,7 @@ h2{
 }
 
 .book-background{
-  
+
   background-image: url('./book.jpg') !important;
   /* background-image: url('https://preview.redd.it/ijyuj3s0o7p21.jpg?width=1024&auto=webp&s=974d0383522f920ce9f592a3b1772e7258ab19d2') !important; */
   background-size: cover !important;

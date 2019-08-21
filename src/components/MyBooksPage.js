@@ -25,8 +25,10 @@ class MyBooksPage extends Component {
 
         return (
             <div className="container">
+
                  <h2>My Books</h2>
                 <br /><br />
+
                 <Card.Group itemsPerRow={4} className="my-books-container">
                     {response}
                 </Card.Group>
