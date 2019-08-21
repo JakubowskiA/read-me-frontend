@@ -3,14 +3,26 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 80pt;
-  color: rgb(21, 124, 228);
+  color: rgb(21, 54, 198);
+  /* color: rgb(1, 15, 124); */
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  font-family: 'Cabin', sans-serif;
+  
+}
+
+h2{
+  color: rgb(21, 54, 198);
+  font-size: 20pt;
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  font-family: 'Cabin', sans-serif;
+  
 }
 
 .App-link {
